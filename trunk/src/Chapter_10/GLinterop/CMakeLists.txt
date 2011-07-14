@@ -1,0 +1,27 @@
+# NV GLUT paths
+SET( CMAKE_INCLUDE_PATH $ENV{NVSDKCOMPUTE_ROOT}/shared/inc )
+SET( CMAKE_LIBRARY_PATH $ENV{NVSDKCOMPUTE_ROOT}/shared/lib )
+FIND_PACKAGE(GLUT REQUIRED)
+FIND_PACKAGE(OpenGL REQUIRED)
+
+# Detect 32/64 bit build environment and set glut  and glew libs correctly
+IF(WIN32)
+	STRING(REGEX MATCH "Win64" ISWIN64 ${CMAKE_GENERATOR})
+	IF("${ISWIN64}" STREQUAL "Win64") 
+		SET( GLUT_LIBRARIES "glut64.lib glew64.lib")
+		FIND_PATH( GLEW_LIBRARY_PATH glew64.lib PATHS $ENV{NVSDKCOMPUTE_ROOT}/shared/lib)
+	ELSE("${ISWIN64}" STREQUAL "Win64") 
+		SET( GLUT_LIBRARIES "glut32.lib glew32.lib")
+		FIND_PATH( GLEW_LIBRARY_PATH glew32.lib PATHS $ENV{NVSDKCOMPUTE_ROOT}/shared/lib )
+	ENDIF("${ISWIN64}" STREQUAL "Win64") 
+ENDIF(WIN32)
+
+# find glew include
+FIND_PATH( GLEW_INCLUDE_PATH GL/glew.h PATHS $ENV{NVSDKCOMPUTE_ROOT}/shared/inc )
+
+MESSAGE("${GLEW_INCLUDE_PATH}")
+
+link_directories(${CMAKE_LIBRARY_PATH})
+add_executable( GLinterop GLinterop.cpp )
+include_directories( ${GLUT_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR})
+target_link_libraries( GLinterop ${OPENCL_LIBRARIES} ${GLUT_LIBRARIES})
