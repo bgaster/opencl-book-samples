@@ -25,6 +25,18 @@ The following sections describe how to build the source code for each of the pla
 
 == Microsoft Windows 7 w/ Microsoft Visual Studio 2008 ==
 
- * Download and unzip the FreeImage DLL installation from [http://freeimage.sourceforge.net/download.html] to a location on your disk such as c:\FreeImage
+Preparation:
+
+ * Download and unzip the Freeimage DLL installation from [http://freeimage.sourceforge.net/download.html] to a location on your disk such as c:\Freeimage
  * The easiest way to install Boost on Windows is to use the install from Boost Consulting available at [http://www.boostpro.com/download/].  Download and install the latest version of Boost (tested with v1.4.7 as of this writing).  
+ * Download and install cmake from [http://www.cmake.org/cmake/resources/software.html] using the Win32 Installer.  
+ * Download and install OpenCL for your platform, for example the NVIDIA GPU Computing SDK or the AMD Stream SDK.
+
+Building:
+
+ * Run cmake-gui and set "Where is the source code" to the location of the root directory where you checked out the tree (e.g., c:\opencl-book-samples)
+ * Set "Where to build the binaries to the folder you want to store the output", such as c:\opencl-book-samples\build
+ * Click "Configure"
+ * You will likely get errors about locating the Boost directories.  Switch to the "Advanced View" and set Boost_INCLUDE_DIR to the location of your Boost installation (e.g., C:\Program Files\boost\boost_1_47\boost)
+
 
