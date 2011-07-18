@@ -43,4 +43,20 @@ Building:
 TO DO
 
 == Ubuntu Linux 11.04 ==
-TO DO
+
+Installation of the prerequisites on Ubuntu can be done using *apt-get*:
+
+{{{
+  sudo apt-get install subversion cmake libboost-all-dev libfreeimage-dev
+}}}
+
+After installation of your OpenCL implementation, you can build simply by doing:
+  
+{{{
+ ~/opencl-book-samples$ mkdir build
+ ~/opencl-book-samples$ cd build
+ ~/opencl-book-samples$ cmake ../
+ ~/opencl-book-samples$ make
+}}}
+
+  
