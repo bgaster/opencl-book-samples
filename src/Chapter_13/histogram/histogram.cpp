@@ -28,7 +28,7 @@ create_image_data_unorm8(int w, int h)
     int             i;
     
     for (i=0; i<w*h*4; i++)
-        p[i] = (unsigned char)(random() & 0xFF);
+        p[i] = (unsigned char)(rand() & 0xFF);
 
     return (void *)p;
 }
@@ -78,7 +78,7 @@ create_image_data_fp32(int w, int h)
     int     i;
     
     for (i=0; i<w*h*4; i++)
-        p[i] = (float)random() / (float)RAND_MAX;
+        p[i] = (float)rand() / (float)RAND_MAX;
 
     return (void *)p;
 }
@@ -211,7 +211,7 @@ test_histogram(cl_context context, cl_command_queue queue, cl_device_id device)
     int                 i, err;
 
 
-    srandom(0);
+    srand(0);
     
     err = read_kernel_from_file(cl_kernel_histogram_filename, &source[0], &src_len[0]);
     if(err)
@@ -597,7 +597,9 @@ main(int argc, char **argv)
     }
 
     // Dump device information
-    char    deviceName[ 512 ], deviceVendor[ 512 ], deviceVersion[ 512 ];
+    char    deviceName[ 512 ];
+    char    deviceVendor[ 512 ];
+    char    deviceVersion[ 512 ];
     err = clGetDeviceInfo(device, CL_DEVICE_VENDOR, sizeof( deviceVendor ),
                            deviceVendor, NULL);
     err |= clGetDeviceInfo(device, CL_DEVICE_NAME, sizeof( deviceName ),

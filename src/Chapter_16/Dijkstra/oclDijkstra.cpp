@@ -15,7 +15,6 @@
 //
 //  Children's Hospital Boston
 //
-#include <pthread.h>
 #include <sstream>
 #include <iostream>
 #include <boost/program_options.hpp>
