@@ -13,8 +13,6 @@ The OpenCL sample code depends on the following libraries:
   * [http://freeimage.sourceforge.net/ FreeImage] (optional, required for _Chapter_8/ImageFilter2D_ example only)
   * [http://www.boost.org/ Boost] (optional, required for _Chapter_16/Dijkstra_ example, Linux/Mac-only)
 
-Please download/install the appropriate OpenCL implementation for your platform along with FreeImage and Boost before attempting to build the sample code.
-
 = Checkout the source code ==
 
 Instructions for checking out the source code from Subversion can be found at [https://code.google.com/p/opencl-book-samples/source/checkout].  Checkout the code to a local folder using a Subversion client on your platform and return to this page for further instructions.
