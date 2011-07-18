@@ -10,8 +10,8 @@ The sample code for the OpenCL Programming Guide was designed to work on a varie
 The OpenCL sample code depends on the following libraries:
 
   * An OpenCL v1.1 implementation for your platform/device
-  * [http://freeimage.sourceforge.net/ FreeImage] (optional, required for __Chapter_8/ImageFilter2D__ example only)
-  * [http://www.boost.org/ Boost] (optional, required for __Chapter_16/Dijkstra__ example, Linux/Mac-only)
+  * [http://freeimage.sourceforge.net/ FreeImage] (optional, required for _Chapter_8/ImageFilter2D_ example only)
+  * [http://www.boost.org/ Boost] (optional, required for _Chapter_16/Dijkstra_ example, Linux/Mac-only)
 
 Please download/install the appropriate OpenCL implementation for your platform along with FreeImage and Boost before attempting to build the sample code.
 
@@ -27,7 +27,7 @@ The following sections describe how to build the source code for each of the pla
 
 Preparation:
 
- * Download and unzip the Freeimage DLL installation from [http://freeimage.sourceforge.net/download.html] to a location on your disk such as c:\Freeimage (optional, required for __Chapter_8/ImageFilter2D__ example only)
+ * Download and unzip the Freeimage DLL installation from [http://freeimage.sourceforge.net/download.html] to a location on your disk such as c:\Freeimage (optional, required for _Chapter_8/ImageFilter2D_ example only)
  * Download and install cmake from [http://www.cmake.org/cmake/resources/software.html] using the Win32 Installer.  
  * Download and install OpenCL for your platform, for example the NVIDIA GPU Computing SDK or the AMD Stream SDK.
 
@@ -36,6 +36,6 @@ Building:
  * Run cmake-gui and set "Where is the source code" to the location of the root directory where you checked out the tree (e.g., c:\opencl-book-samples)
  * Set "Where to build the binaries" to the folder you want to store the output, such as c:\opencl-book-samples\build
  * Click "Configure"
- * If you wish to build __Chapter_8/ImageFilter2D__, then switch to "Advanced View" and set FREEIMAGE_LIBRARY to c:\Freeimage\Dist\Freeimage.lib and set FREEIMAGE_INCLUDE_PATH to c:\Freeimage\Dist and FREEIMAGE_FOUND to True.
+ * If you wish to build _Chapter_8/ImageFilter2D_, then switch to "Advanced View" and set FREEIMAGE_LIBRARY to c:\Freeimage\Dist\Freeimage.lib and set FREEIMAGE_INCLUDE_PATH to c:\Freeimage\Dist and FREEIMAGE_FOUND to True.
  * Click "Configure" and then "Generate"
  * Now open C:\opencl-book-samples\build\ALL_BUILD.sln in Visual Studio 2008 and click "Build" and it should build the sample code.
