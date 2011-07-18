@@ -40,7 +40,21 @@ Building:
 
 
 == Mac OS X 10.6.8 ==
-TO DO
+
+The easiest way to install the prerequisites on Mac OS X is to use [http://www.macports.org].  Once macports is installed, the required ports can be installed with the command:
+
+{{{
+  sudo port install cmake freeimage boost
+}}}
+
+{{{
+ ~/opencl-book-samples$ mkdir build
+ ~/opencl-book-samples$ cd build
+ ~/opencl-book-samples$ cmake ../
+ ~/opencl-book-samples$ make
+}}}
+
+*TO DO: Fix Chapter_3/OpenCLInfo build error*
 
 == Ubuntu Linux 11.04 ==
 
