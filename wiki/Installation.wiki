@@ -39,3 +39,10 @@ Building:
  * If you wish to build _Chapter_8/ImageFilter2D_, then switch to "Advanced View" and set FREEIMAGE_LIBRARY to c:\Freeimage\Dist\Freeimage.lib and set FREEIMAGE_INCLUDE_PATH to c:\Freeimage\Dist and FREEIMAGE_FOUND to True.
  * Click "Configure" and then "Generate"
  * Now open C:\opencl-book-samples\build\ALL_BUILD.sln in Visual Studio 2008 and click "Build" and it should build the sample code.
+
+
+== Mac OS X 10.6.8 ==
+TO DO
+
+== Ubuntu Linux 11.04 ==
+TO DO
