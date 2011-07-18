@@ -19,6 +19,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string.h>
 
 #ifdef __APPLE__
 #include <OpenCL/cl.h>

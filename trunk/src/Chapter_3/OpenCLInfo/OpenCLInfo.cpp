@@ -452,7 +452,7 @@ void displayInfo(void)
 			"CL_PLATFORM_EXTENSIONS");
 
 		// Now query the set of devices associated with the platform
-		std::size_t numDevices;
+		cl_uint numDevices;
 		errNum = clGetDeviceIDs(
 			platformIds[i],
 			CL_DEVICE_TYPE_ALL,
