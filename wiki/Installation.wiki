@@ -10,8 +10,8 @@ The sample code for the OpenCL Programming Guide was designed to work on a varie
 The OpenCL sample code depends on the following libraries:
 
   * An OpenCL v1.1 implementation for your platform/device
-  * [http://freeimage.sourceforge.net/ FreeImage]
-  * [http://www.boost.org/ Boost]
+  * [http://freeimage.sourceforge.net/ FreeImage] (optional, required for Chapter_8/ImageFilter2D example only)
+  * [http://www.boost.org/ Boost] (optional, required for Chapter_16/Dijkstra example, Linux/Mac-only)
 
 Please download/install the appropriate OpenCL implementation for your platform along with FreeImage and Boost before attempting to build the sample code.
 
@@ -28,15 +28,14 @@ The following sections describe how to build the source code for each of the pla
 Preparation:
 
  * Download and unzip the Freeimage DLL installation from [http://freeimage.sourceforge.net/download.html] to a location on your disk such as c:\Freeimage
- * The easiest way to install Boost on Windows is to use the install from Boost Consulting available at [http://www.boostpro.com/download/].  Download and install the latest version of Boost (tested with v1.4.7 as of this writing).  
  * Download and install cmake from [http://www.cmake.org/cmake/resources/software.html] using the Win32 Installer.  
  * Download and install OpenCL for your platform, for example the NVIDIA GPU Computing SDK or the AMD Stream SDK.
 
 Building:
 
  * Run cmake-gui and set "Where is the source code" to the location of the root directory where you checked out the tree (e.g., c:\opencl-book-samples)
- * Set "Where to build the binaries to the folder you want to store the output", such as c:\opencl-book-samples\build
+ * Set "Where to build the binaries" to the folder you want to store the output, such as c:\opencl-book-samples\build
  * Click "Configure"
- * You will likely get errors about locating the Boost directories.  Switch to the "Advanced View" and set Boost_INCLUDE_DIR to the location of your Boost installation (e.g., C:\Program Files\boost\boost_1_47\boost)
-
-
+ * If you wish to build Chapter_8/ImageFilter2D, then switch to "Advanced View" and set FREEIMAGE_LIBRARY to c:\Freeimage\Dist\Freeimage.lib and set FREEIMAGE_INCLUDE_PATH to c:\Freeimage\Dist and FREEIMAGE_FOUND to True.
+ * Click "Configure" and then "Generate"
+ * Now open C:\opencl-book-samples\build\ALL_BUILD.sln in Visual Studio 2008 and click "Build" and it should build the sample code.
