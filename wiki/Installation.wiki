@@ -47,6 +47,8 @@ The easiest way to install the prerequisites on Mac OS X is to use [http://www.m
   sudo port install cmake freeimage boost
 }}}
 
+You can then build the code with the following commands:
+
 {{{
  ~/opencl-book-samples$ mkdir build
  ~/opencl-book-samples$ cd build
