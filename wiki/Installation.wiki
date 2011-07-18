@@ -13,4 +13,18 @@ The OpenCL sample code depends on the following libraries:
   * [http://freeimage.sourceforge.net/ FreeImage]
   * [http://www.boost.org/ Boost]
 
+Please download/install the appropriate OpenCL implementation for your platform along with FreeImage and Boost before attempting to build the sample code.
+
+= Checkout the source code ==
+
+Instructions for checking out the source code from Subversion can be found at [https://code.google.com/p/opencl-book-samples/source/checkout].  Checkout the code to a local folder using a Subversion client on your platform and return to this page for further instructions.
+
+= Building the source code ==
+
+The following sections describe how to build the source code for each of the platforms that the code has been tested on.
+
+== Microsoft Windows 7 w/ Microsoft Visual Studio 2008 ==
+
+ * Download and unzip the FreeImage DLL installation from [http://freeimage.sourceforge.net/download.html] to a location on your disk such as c:\FreeImage
+ * The easiest way to install Boost on Windows is to use the install from Boost Consulting available at [http://www.boostpro.com/download/].  Download and install the latest version of Boost (tested with v1.4.7 as of this writing).  
 
