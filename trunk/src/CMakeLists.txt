@@ -4,7 +4,13 @@ SUBDIRS(Chapter_2/HelloWorld
 	Chapter_6/HelloBinaryWorld 
 	Chapter_7/SimpleBufferSubBuffer
 	Chapter_8/ImageFilter2D 
+	Chapter_12/Sinewave
+	Chapter_12/VectorAdd
 	Chapter_13/histogram 
 	Chapter_16/Dijkstra
-	Chapter_22/)
+	Chapter_22/)	
 
+IF(WIN32)
+	# D3Dinterop is Windows only
+	SUBDIRS(Chapter_11/D3Dinterop)
+ENDIF(WIN32)
