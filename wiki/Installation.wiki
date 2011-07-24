@@ -41,7 +41,7 @@ Building:
 
 == Mac OS X 10.7 ==
 
-The easiest way to install the prerequisites on Mac OS X is to use [http://www.macports.org].  In order to use MacPorts, you will need to install Xcode 4.1.  Once macports is installed, the required ports can be installed with the command:
+The easiest way to install the prerequisites on Mac OS X is to use [http://www.macports.org].  In order to use macports, you will need to install Xcode 4.1.  Once macports is installed, the required ports can be installed with the command:
 
 {{{
   sudo port install cmake freeimage boost
