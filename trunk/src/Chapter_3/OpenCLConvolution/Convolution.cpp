@@ -25,6 +25,10 @@
 #include <CL/cl.h>
 #endif
 
+#if !defined(CL_CALLBACK)
+#define CL_CALLBACK
+#endif
+
 // Constants
 const unsigned int inputSignalWidth  = 8;
 const unsigned int inputSignalHeight = 8;
