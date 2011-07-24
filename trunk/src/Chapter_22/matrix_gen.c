@@ -398,7 +398,7 @@ int matrix_gen(matrix_gen_struct *mgs) {
    int acctg_maxcount = 0;
    float acctg_avgcount = 0.0f;
    for (i=0; i<*(mgs->nslabs_round); ++i) {
-      uint nteams = *(mgs->gpu_wgsz)/16;
+      unsigned int nteams = *(mgs->gpu_wgsz)/16;
       /* Load the header data into "seg_workspace" via the "matrix_header" proxy variable. */
       (*(mgs->matrix_header))[current_slab].offset = (*(mgs->memsize)) / sizeof(packet);
       (*(mgs->matrix_header))[current_slab].outindex = (*(mgs->slab_startrow))[i]-(*(mgs->slab_startrow))[0];

@@ -1,3 +1,10 @@
-SUBDIRS(Chapter_2/HelloWorld Chapter_3/OpenCLInfo Chapter_3/OpenCLConvolution Chapter_6/HelloBinaryWorld Chapter_8/ImageFilter2D Chapter_13/histogram Chapter_16/Dijkstra)
-
+SUBDIRS(Chapter_2/HelloWorld
+	Chapter_3/OpenCLInfo 
+	Chapter_3/OpenCLConvolution 
+	Chapter_6/HelloBinaryWorld 
+	Chapter_7/SimpleBufferSubBuffer
+	Chapter_8/ImageFilter2D 
+	Chapter_13/histogram 
+	Chapter_16/Dijkstra
+	Chapter_22/)
 
