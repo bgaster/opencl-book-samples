@@ -203,11 +203,13 @@ public:
 					"CL_FP_FMA", 
 					fpType); 
 
+#ifdef CL_FP_SOFT_FLOAT
 				appendBitfield<cl_device_fp_config>(
 					*(reinterpret_cast<cl_device_fp_config*>(info)),
 					CL_FP_SOFT_FLOAT, 
 					"CL_FP_SOFT_FLOAT", 
 					fpType); 
+#endif
 
 				std::cout << "\t\t" << str << ":\t" << fpType << std::endl;
 			}
@@ -542,6 +544,8 @@ void displayInfo(void)
 				CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE, 
 				"CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE");
 
+#ifdef CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF
+
 			InfoDevice<cl_uint>::display(
 				devices[j], 
 				CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF, 
@@ -581,6 +585,7 @@ void displayInfo(void)
 				devices[j], 
 				CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF, 
 				"CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF");
+#endif
 
 			InfoDevice<cl_uint>::display(
 				devices[j], 
@@ -712,10 +717,12 @@ void displayInfo(void)
 				CL_DEVICE_ERROR_CORRECTION_SUPPORT, 
 				"CL_DEVICE_ERROR_CORRECTION_SUPPORT");
 
+#ifdef CL_DEVICE_HOST_UNIFIED_MEMORY
 			InfoDevice<cl_bool>::display(
 				devices[j], 
 				CL_DEVICE_HOST_UNIFIED_MEMORY, 
 				"CL_DEVICE_HOST_UNIFIED_MEMORY");
+#endif
 
 			InfoDevice<std::size_t>::display(
 				devices[j], 
@@ -777,10 +784,12 @@ void displayInfo(void)
 				CL_DEVICE_VERSION, 
 				"CL_DEVICE_VERSION");
 
+#ifdef CL_DEVICE_OPENCL_C_VERSION
 			InfoDevice<ArrayType<char> >::display(
 				devices[j], 
 				CL_DEVICE_OPENCL_C_VERSION, 
 				"CL_DEVICE_OPENCL_C_VERSION");
+#endif
 
 			InfoDevice<ArrayType<char> >::display(
 				devices[j], 
