@@ -4,11 +4,15 @@ SUBDIRS(Chapter_2/HelloWorld
 	Chapter_6/HelloBinaryWorld 
 	Chapter_7/SimpleBufferSubBuffer
 	Chapter_8/ImageFilter2D 
-	Chapter_12/Sinewave
 	Chapter_12/VectorAdd
 	Chapter_13/histogram 
 	Chapter_16/Dijkstra
 	Chapter_22/)	
+
+IF(WIN32 OR UNIX AND NOT APPLE)
+	# Sinewave uses wgl or glx
+	SUBDIRS(Chapter_12/Sinewave)
+ENDIF(WIN32 OR UNIX AND NOT APPLE)
 
 IF(WIN32)
 	# D3Dinterop is Windows only
