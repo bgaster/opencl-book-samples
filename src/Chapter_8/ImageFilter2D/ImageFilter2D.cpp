@@ -257,7 +257,7 @@ bool SaveImage(char *fileName, char *buffer, int width, int height)
     FIBITMAP *image = FreeImage_ConvertFromRawBits((BYTE*)buffer, width,
                         height, width * 4, 32,
                         0xFF000000, 0x00FF0000, 0x0000FF00);
-    return FreeImage_Save(format, image, fileName);
+    return (FreeImage_Save(format, image, fileName) == TRUE) ? true : false;
 }
 
 ///
@@ -287,7 +287,7 @@ int main(int argc, char** argv)
     cl_device_id device = 0;
     cl_kernel kernel = 0;
     cl_mem imageObjects[2] = { 0, 0 };
-    cl_sampler sampler;
+    cl_sampler sampler = 0;
     cl_int errNum;
 
 

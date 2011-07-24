@@ -219,7 +219,7 @@ int main(int argc, char** argv)
     }
 
     // Create command queues
-    for (int i = 0; i < numDevices; i++)
+    for (unsigned int i = 0; i < numDevices; i++)
     {
         InfoDevice<cl_device_type>::display(
             deviceIDs[i], 
@@ -294,7 +294,7 @@ int main(int argc, char** argv)
 
     std::vector<cl_event> events;
     // call kernel for each device
-    for (int i = 0; i < queues.size(); i++)
+    for (unsigned int i = 0; i < queues.size(); i++)
     {
         cl_event event;
 
@@ -316,7 +316,7 @@ int main(int argc, char** argv)
 
     // Technically don't need this as we are doing a blocking read
     // with in-order queue.
-    clWaitForEvents(events.size(), events.data());
+    clWaitForEvents(events.size(), &events[0]);
 
     if (useMap)
     {
