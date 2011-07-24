@@ -16,7 +16,12 @@
 #include <libgen.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <CL/opencl.h>
+
+#ifdef __APPLE__
+#include <OpenCL/cl.h>
+#else
+#include <CL/cl.h>
+#endif
 
 #define KERNEL_DEFAULT 0
 #define KERNEL_LS      1    /* The "load/store" kernel. */
