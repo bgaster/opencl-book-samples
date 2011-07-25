@@ -28,7 +28,7 @@
 #include <windows.h>
 #endif
 #include <GL/glew.h>
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 
 ///
 // OpenGL/CL variables, objects
@@ -345,13 +345,24 @@ cl_context CreateContext()
     // a CPU-based context.
     cl_context_properties contextProperties[] =
     {
+#ifdef _WIN32
         CL_CONTEXT_PLATFORM,
         (cl_context_properties)firstPlatformId,
 		CL_GL_CONTEXT_KHR,
 		(cl_context_properties)wglGetCurrentContext(),
 		CL_WGL_HDC_KHR,
 		(cl_context_properties)wglGetCurrentDC(),
+#elif defined( __GNUC__)
+		CL_CONTEXT_PLATFORM, (cl_context_properties)clSelectedPlatformID, 
+		CL_GL_CONTEXT_KHR, (cl_context_properties)glXGetCurrentContext(), 
+		CL_GLX_DISPLAY_KHR, (cl_context_properties)glXGetCurrentDisplay(), 
+#elif defined(__APPLE__) 
+		//todo
+#endif
         0
+
+
+
     };
     context = clCreateContextFromType(contextProperties, CL_DEVICE_TYPE_GPU,
                                       NULL, NULL, &errNum);
