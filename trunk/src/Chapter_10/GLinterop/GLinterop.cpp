@@ -157,6 +157,7 @@ void initGlut(int argc, char *argv[], int wWidth, int wHeight)
     else {
 		printf("Warning: Detected that OpenGL 2.1 not supported\n");
     }
+
 }
 
 void initTexture( int width, int height )
@@ -364,8 +365,21 @@ cl_context CreateContext()
 
 
     };
-    context = clCreateContextFromType(contextProperties, CL_DEVICE_TYPE_GPU,
-                                      NULL, NULL, &errNum);
+	cl_uint uiDevCount;
+    cl_device_id* cdDevices;
+	// Get the number of GPU devices available to the platform
+    errNum = clGetDeviceIDs(firstPlatformId, CL_DEVICE_TYPE_GPU, 0, NULL, &uiDevCount);
+
+    // Create the device list
+    cdDevices = new cl_device_id [uiDevCount];
+    errNum = clGetDeviceIDs(firstPlatformId, CL_DEVICE_TYPE_GPU, uiDevCount, cdDevices, NULL);
+
+
+    context = clCreateContext(contextProperties, 1, &cdDevices[0], NULL, NULL, &errNum);
+	//// alternate:
+    //context = clCreateContextFromType(contextProperties, CL_DEVICE_TYPE_GPU,
+    //                                  NULL, NULL, &errNum);
+
     if (errNum != CL_SUCCESS)
     {
         std::cout << "Could not create GPU context, trying CPU..." << std::endl;
