@@ -30,6 +30,10 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
+#ifdef __GNUC__
+#include <GL/glx.h>
+#endif
+
 ///
 // OpenGL/CL variables, objects
 //
@@ -354,7 +358,7 @@ cl_context CreateContext()
 		CL_WGL_HDC_KHR,
 		(cl_context_properties)wglGetCurrentDC(),
 #elif defined( __GNUC__)
-		CL_CONTEXT_PLATFORM, (cl_context_properties)clSelectedPlatformID, 
+		CL_CONTEXT_PLATFORM, (cl_context_properties)firstPlatformId, 
 		CL_GL_CONTEXT_KHR, (cl_context_properties)glXGetCurrentContext(), 
 		CL_GLX_DISPLAY_KHR, (cl_context_properties)glXGetCurrentDisplay(), 
 #elif defined(__APPLE__) 
