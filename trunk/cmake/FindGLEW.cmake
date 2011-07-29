@@ -7,13 +7,22 @@
 # GLEW_LIBRARY
 # 
 
+
+
 IF (WIN32)
+    STRING(REGEX MATCH "Win64" ISWIN64 ${CMAKE_GENERATOR})
+    IF("${ISWIN64}" STREQUAL "Win64") 
+            SET(GLEW_LIB_NAMES glew64 glew64s )
+    ELSE("${ISWIN64}" STREQUAL "Win64") 
+            SET(GLEW_LIB_NAMES glew32 glew32s )
+    ENDIF("${ISWIN64}" STREQUAL "Win64") 
+
     FIND_PATH( GLEW_INCLUDE_PATH GL/glew.h
         $ENV{PROGRAMFILES}/GLEW/include
         ${PROJECT_SOURCE_DIR}/src/nvgl/glew/include
         DOC "The directory where GL/glew.h resides")
     FIND_LIBRARY( GLEW_LIBRARY
-        NAMES glew GLEW glew32 glew32s
+	    NAMES glew ${GLEW_LIB_NAMES}
         PATHS
         $ENV{PROGRAMFILES}/GLEW/lib
         $ENV{NVSDKCOMPUTE_ROOT}/shared/lib                  
