@@ -16,8 +16,8 @@ IF (WIN32)
         NAMES glew GLEW glew32 glew32s
         PATHS
         $ENV{PROGRAMFILES}/GLEW/lib
-        $ENV{NVSDKCOMPUTE_ROOT}/shared/lib
-        $ENV{NVSDKCOMPUTE_ROOT}/shared/lib/Win32
+        $ENV{NVSDKCOMPUTE_ROOT}/shared/lib                  
+        $ENV{NVSDKCOMPUTE_ROOT}/shared/lib/Win32          
         ${PROJECT_SOURCE_DIR}/src/nvgl/glew/bin
         ${PROJECT_SOURCE_DIR}/src/nvgl/glew/lib
         DOC "The GLEW library")
@@ -27,6 +27,7 @@ ELSE (WIN32)
         /usr/local/include
         /sw/include
         /opt/local/include
+        $ENV{NVSDKCOMPUTE_ROOT}/shared/inc
         DOC "The directory where GL/glew.h resides")
     FIND_LIBRARY( GLEW_LIBRARY
         NAMES GLEW glew
@@ -37,6 +38,7 @@ ELSE (WIN32)
         /usr/local/lib
         /sw/lib
         /opt/local/lib
+        $ENV{NVSDKCOMPUTE_ROOT}/shared/lib/linux 
         DOC "The GLEW library")
 ENDIF (WIN32)
 
