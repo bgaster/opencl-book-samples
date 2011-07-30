@@ -10,6 +10,7 @@ ENDIF("${ISWIN64}" STREQUAL "Win64")
 FIND_PACKAGE(GLUT REQUIRED)
 FIND_PACKAGE(OpenGL REQUIRED)
 FIND_PACKAGE(OpenCV REQUIRED)
+FIND_PACKAGE(GLEW REQUIRED)
 
 # Detect 32/64 bit build environment and set glut  and glew libs correctly
 IF(WIN32)
@@ -27,7 +28,14 @@ ENDIF(WIN32)
 FIND_PATH( GLEW_INCLUDE_PATH GL/glew.h PATHS $ENV{NVSDKCOMPUTE_ROOT}/shared/inc )
 FIND_PATH( OCLUTILS_INCLUDE_PATH oclUtils.h PATHS $ENV{NVSDKCOMPUTE_ROOT}/OpenCL/common/inc )
 FIND_PATH( SHRUTILS_INCLUDE_PATH shrUtils.h PATHS $ENV{NVSDKCOMPUTE_ROOT}/shared/inc )
-FIND_LIBRARY( OCLUTILS_LIBRARIES oclUtils32.lib PATHS $ENV{NVSDKCOMPUTE_ROOT}/OpenCL/common/lib/Win32 )
+IF(WIN32)
+    FIND_LIBRARY( OCLUTILS_LIBRARIES oclUtils32.lib PATHS $ENV{NVSDKCOMPUTE_ROOT}/OpenCL/common/lib/Win32 )
+ELSE(WIN32)
+    #todo : this needs to be arch specific 32/64 on Linux
+    FIND_LIBRARY( OCLUTILS_LIBRARIES liboclUtil_x86_64.a PATHS $ENV{NVSDKCOMPUTE_ROOT}/OpenCL/common/lib/ )
+    FIND_LIBRARY( SHRUTILS_LIBRARIES libshrutil_x86_64.a PATHS $ENV{NVSDKCOMPUTE_ROOT}/shared/lib/ )
+ENDIF(WIN32)
+
 
 MESSAGE("${GLEW_INCLUDE_PATH}")
 
@@ -53,8 +61,9 @@ configure_file(data/minicooper/frame11.pgm ${CMAKE_CURRENT_BINARY_DIR}/data/mini
 configure_file(readme.txt ${CMAKE_CURRENT_BINARY_DIR}/readme.txt COPYONLY)
 
 
+# todo: Linux opencv ubuntu distro req's cudart at compile time, add library "cudart" and path to toolkit below to compile on Linux
 
-link_directories(${CMAKE_LIBRARY_PATH})
+link_directories(${CMAKE_LIBRARY_PATH} )
 add_executable( oclFlow oclFlow.cpp flowGL.cpp)
-include_directories( ${GLUT_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR} ${OCLUTILS_INCLUDE_PATH} ${SHRUTILS_INCLUDE_PATH})
-target_link_libraries( oclFlow ${OPENCL_LIBRARIES} ${GLUT_LIBRARIES} ${OpenCV_LIBS} ${OCLUTILS_LIBRARIES} )
+include_directories( ${GLUT_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR} ${OCLUTILS_INCLUDE_PATH} ${SHRUTILS_INCLUDE_PATH} )
+target_link_libraries( oclFlow ${OPENCL_LIBRARIES} ${GLUT_LIBRARIES} ${OpenCV_LIBS} ${OCLUTILS_LIBRARIES} ${SHRUTILS_LIBRARIES} ${GLEW_LIBRARY})

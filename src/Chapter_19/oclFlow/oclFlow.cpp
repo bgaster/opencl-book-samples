@@ -14,7 +14,7 @@
 #include <oclUtils.h>
 #include <iostream>
 #include <GL/gl.h>
-#ifdef LINUX
+#ifdef  __GNUC__
 #include <GL/glx.h>
 #endif
 
