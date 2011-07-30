@@ -461,7 +461,7 @@ int main( int argc, char** argv )
 		// so this is justa quick way to load them into the texture as well)
 		unsigned int w, h;
 		unsigned char *image_ub = NULL;
-		shrLoadPGMub( "../data/minicooper/frame10.pgm", (unsigned char **)&image_ub, &w, &h );
+		shrLoadPGMub( "data/minicooper/frame10.pgm", (unsigned char **)&image_ub, &w, &h );
 		glBindTexture(GL_TEXTURE_RECTANGLE_NV, tex);
 		glTexSubImage2D(GL_TEXTURE_RECTANGLE_NV, 0, 0, 0, gw, gh, GL_LUMINANCE, GL_UNSIGNED_BYTE, image_ub );
 	}
