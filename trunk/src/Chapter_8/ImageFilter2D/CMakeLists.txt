@@ -57,4 +57,6 @@ IF (FREEIMAGE_INCLUDE_PATH AND FREEIMAGE_LIBRARY)
 
     add_executable( ImageFilter2D ImageFilter2D.cpp )
     target_link_libraries( ImageFilter2D ${OPENCL_LIBRARIES} ${FREEIMAGE_LIBRARIES} )
+    
+    configure_file(ImageFilter2D.cl ${CMAKE_CURRENT_BINARY_DIR}/ImageFilter2D.cl COPYONLY)
 ENDIF  (FREEIMAGE_INCLUDE_PATH AND FREEIMAGE_LIBRARY)
