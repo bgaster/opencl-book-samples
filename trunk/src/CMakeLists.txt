@@ -5,7 +5,7 @@ SUBDIRS(Chapter_2/HelloWorld
 	Chapter_7/SimpleBufferSubBuffer
 	Chapter_8/ImageFilter2D 
 	Chapter_12/VectorAdd
-	Chapter_13/histogram 
+	Chapter_14/histogram 
 	Chapter_16/Dijkstra
 	Chapter_22/)	
 
