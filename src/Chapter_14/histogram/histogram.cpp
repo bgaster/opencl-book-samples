@@ -598,8 +598,20 @@ main(int argc, char **argv)
     cl_command_queue    queue;
     int                 err;
     cl_device_type      device_type = CL_DEVICE_TYPE_GPU;
-    
-    err = clGetDeviceIDs(NULL, device_type, 1, &device, NULL);
+
+#if (__APPLE__) || defined(__MACOSX)
+    cl_platform_id platform = NULL;
+#else
+    cl_platform_id platform = NULL;
+    err = clGetPlatformIDs(1, &platform, NULL);
+    if(err != CL_SUCCESS)
+    {
+        printf("clGetPlatformIDs() failed. (%d)\n", err);
+        return EXIT_FAILURE;
+    }
+#endif
+
+    err = clGetDeviceIDs(platform, device_type, 1, &device, NULL);
     if(err != CL_SUCCESS)
     {
         printf("clGetDeviceIDs() failed. (%d)\n", err);
