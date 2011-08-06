@@ -106,6 +106,7 @@ cl_command_queue CreateCommandQueue(cl_context context, cl_device_id *device)
     errNum = clGetContextInfo(context, CL_CONTEXT_DEVICES, deviceBufferSize, devices, NULL);
     if (errNum != CL_SUCCESS)
     {
+        delete [] devices;
         std::cerr << "Failed to get device IDs";
         return NULL;
     }
@@ -116,6 +117,7 @@ cl_command_queue CreateCommandQueue(cl_context context, cl_device_id *device)
     commandQueue = clCreateCommandQueue(context, devices[0], 0, NULL);
     if (commandQueue == NULL)
     {
+        delete [] devices;
         std::cerr << "Failed to create commandQueue for device 0";
         return NULL;
     }
