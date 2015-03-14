@@ -1,4 +1,4 @@
-![Logo](logo.jpg) OpenCL Programming Guide 1.2 Examples
+![Logo](logo.jpeg) OpenCL Programming Guide 1.2 Examples
 =======================================================================
 
 This project contains all of the source code to the example programs
