@@ -1,4 +1,4 @@
-![Logo](logo.img) OpenCL Programming Guide 1.2 Examples
+![Logo](logo.jpg) OpenCL Programming Guide 1.2 Examples
 =======================================================================
 
 This project contains all of the source code to the example programs
@@ -10,3 +10,4 @@ can be found on the Installation page.
 This book is getting old now and I'm pleased to say that we are
 working on new version that will cover OpenCL 2.1; more information
 soon.
+
