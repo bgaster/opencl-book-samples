@@ -256,14 +256,14 @@ int main(int argc, char** argv)
 	errNum |= clSetKernelArg(kernel, 4, sizeof(cl_uint), &maskWidth);
 	checkErr(errNum, "clSetKernelArg");
 
-	const size_t globalWorkSize[1] = { outputSignalWidth * outputSignalHeight };
-    const size_t localWorkSize[1]  = { 1 };
+	const size_t globalWorkSize[1] = { outputSignalWidth, outputSignalHeight };
+    const size_t localWorkSize[1]  = { 1, 1 };
 
     // Queue the kernel up for execution across the array
     errNum = clEnqueueNDRangeKernel(
 		queue, 
 		kernel, 
-		1, 
+		2, 
 		NULL,
         globalWorkSize, 
 		localWorkSize,
